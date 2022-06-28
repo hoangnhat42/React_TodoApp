@@ -4,6 +4,7 @@ import Todos from "./Todos";
 import AddTodo from "./AddToDo";
 //import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
+import Footer from "../store/containers/Footer";
 
 /* class TodoApp extends React.Component { 
     
@@ -135,6 +136,7 @@ import axios from "axios";
                 <Todos todos={state.todos}
                     handleChange={handleCheckboxChange}
                     deleteTodo={deleteTodo} />
+                <Footer />
             </div>
         );
     
