@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class AddTodo extends React.Component  {
+/* class AddTodo extends React.Component  {
 
     state = {
         title: ""
@@ -32,5 +32,32 @@ class AddTodo extends React.Component  {
             </form>
         );
     }
+}
+export default AddTodo; */
+
+function AddTodo (props) {
+    const [title, setTitle] = useState("");
+
+    const onInputChange = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const addTodo = (e) => {
+        e.preventDefault();
+        props.addTodo(title);
+        setTitle("");
+    };
+
+    return (
+        <form className="form-container" onSubmit={addTodo}>
+            <input 
+            type="text" 
+            placeholder="Add Todo..." 
+            className="input-text"
+            value={title}
+            onChange={onInputChange} />
+            <input type="submit" value="Submit" className="input-submit" />
+        </form>
+    );
 }
 export default AddTodo;
