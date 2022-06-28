@@ -1,6 +1,8 @@
 import React from "react"; 
 import Header from "./layout/Header";
 import Todos from "./Todos";
+import AddTodo from "./AddToDo";
+import { v4 as uuidv4 } from 'uuid';
 class TodoApp extends React.Component { 
     
     state = {
@@ -16,19 +18,54 @@ class TodoApp extends React.Component {
                 completed: false
             },
             {
-                id: 2,
-                title: "Develop to live server",
+                id: 3,
+                title: "Deploy to live server",
                 completed: false
             }
         ]
 
     };
+
+    handleCheckboxChange = (id) => {
+        this.setState({
+            todos: this.state.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            })
+        })
+    };
+
+    deleteTodo = (id) => {
+        this.setState({
+            todos: [
+                ...this.state.todos.filter(todo => {
+                    return todo.id !== id;
+                    })
+                ]
+        })
+    }
     
+    addTodo = title => {
+        const newTodo = { 
+            id: uuidv4(),
+            title: title, 
+            completed: false 
+        };
+         this.setState({ 
+            todos: [...this.state.todos, newTodo] 
+        });
+    };
+
     render() { 
         return ( 
-            <div> 
+            <div className="container"> 
                 <Header />
-                <Todos  todos={this.state.todos} />
+                <AddTodo addTodo={this.addTodo} />
+                <Todos  todos={this.state.todos} 
+                        handleChange={this.handleCheckboxChange}
+                        deleteTodo={this.deleteTodo} />
             </div> 
             ); 
         } 
