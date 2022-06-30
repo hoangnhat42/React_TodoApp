@@ -1,4 +1,4 @@
-##Chức năng:
+## Chức năng:
 - Hiển thị danh sách các Todo được lấy từ API về.
 - Thêm một Todo mới - Todo được thêm vào server thông qua API.
 - Xóa một Todo - Todo được xóa trên server thông qua API.
