@@ -1,3 +1,8 @@
+##Chức năng:
+- Hiển thị danh sách các Todo được lấy từ API về.
+- Thêm một Todo mới - Todo được thêm vào server thông qua API.
+- Xóa một Todo - Todo được xóa trên server thông qua API.
+- Đánh dấu một Todo đã hoàn thành.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
